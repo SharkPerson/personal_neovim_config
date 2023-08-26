@@ -20,7 +20,7 @@ local plugins = {
     lazy = false,
   },
   'nvim-tree/nvim-tree.lua',
-  --'nvim-tree/nvim-web-devicons',
+  'nvim-tree/nvim-web-devicons',
   --'nvim-lualine/lualine.nvim',
   'nvim-treesitter/nvim-treesitter',
   'bluz71/vim-nightfly-colors',
@@ -37,27 +37,65 @@ local plugins = {
   --'simrat39/rust-tools.nvim',
 
   -- completion
-  --'hrsh7th/nvim-cmp',
-  --'hrsh7th/cmp-nvim-lsp',
-  --'L3MON4D3/LuaSnip',
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-nvim-lsp',
+  'L3MON4D3/LuaSnip',
   --'saadparwaiz1/cmp_luasnip',
   --"rafamadriz/friendly-snippets",
   --"github/copilot.vim",
-  --"williamboman/mason.nvim",
-  --"neovim/nvim-lspconfig",
+  "williamboman/mason.nvim",
+  "neovim/nvim-lspconfig",
   --"williamboman/mason-lspconfig.nvim",
   --"glepnir/lspsaga.nvim",
   {
-	  'nvim-telescope/telescope.nvim',
-	  tag = '0.1.0',
-	  dependencies = { {'nvim-lua/plenary.nvim'} }
+      'nvim-telescope/telescope.nvim',
+      tag = '0.1.0',
+      dependencies = { {'nvim-lua/plenary.nvim'} }
   },
+  -- Alpha (Dashboard)
   {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
-}
+      "goolord/alpha-nvim",
+      lazy = true,
+  }, 
+  {
+      'VonHeikemen/lsp-zero.nvim',
+      branch = 'v1.x',
+      dependencies = {
+          -- LSP Support
+          {'neovim/nvim-lspconfig'},             -- Required
+          {'williamboman/mason.nvim'},           -- Optional
+          {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+          -- Autocompletion
+          {'hrsh7th/nvim-cmp'},         -- Required
+          {'hrsh7th/cmp-nvim-lsp'},     -- Required
+          {'hrsh7th/cmp-buffer'},       -- Optional
+          {'hrsh7th/cmp-path'},         -- Optional
+          {'saadparwaiz1/cmp_luasnip'}, -- Optional
+          {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+          -- Snippets
+          {'L3MON4D3/LuaSnip'},             -- Required
+          {'rafamadriz/friendly-snippets'}, -- Optional
+      }
+  },
+  -- Which-key
+  {
+      'folke/which-key.nvim',
+      lazy = true,
+  },
+  -- Hop (Better Navigation)
+  {
+      "phaazon/hop.nvim",
+      lazy = true,
+  },
+
+  {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+  }
 }
 
 local opts = {}
